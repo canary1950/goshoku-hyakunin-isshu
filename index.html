@@ -1,239 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="坂井岳志が開発した教育・学習・スポーツ分析アプリの一覧です。">
-  <meta name="theme-color" content="#0f766e">
-  <title>坂井岳志のアプリライブラリー</title>
-  <style>
-    :root {
-      --ink: #18323a;
-      --muted: #5a7077;
-      --surface: rgba(255, 255, 255, .92);
-      --line: #d7e7e7;
-      --primary: #0f766e;
-      --primary-dark: #0b5b55;
-      --shadow: 0 12px 30px rgba(20, 66, 72, .12);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
-      background:
-        radial-gradient(circle at 10% 0%, #d9f4ef 0, transparent 35%),
-        radial-gradient(circle at 100% 20%, #e7efff 0, transparent 34%),
-        #f5f9f8;
-      line-height: 1.7;
-    }
-
-    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-
-    header { padding: 72px 0 38px; text-align: center; }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 5px 14px;
-      border: 1px solid #9ccdc8;
-      border-radius: 999px;
-      color: var(--primary-dark);
-      background: rgba(255,255,255,.65);
-      font-size: .88rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-    }
-
-    h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1.25; letter-spacing: .02em; }
-    .lead { max-width: 720px; margin: 18px auto 0; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.12rem); }
-
-    .section-title { margin: 20px 0 18px; font-size: 1.3rem; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding-bottom: 60px; }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      min-height: 290px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .card:hover { transform: translateY(-4px); box-shadow: 0 17px 38px rgba(20, 66, 72, .17); }
-
-    .card-top { display: flex; align-items: center; gap: 15px; }
-    .icon {
-      display: grid;
-      flex: 0 0 58px;
-      width: 58px;
-      height: 58px;
-      place-items: center;
-      border-radius: 17px;
-      background: #e5f4f1;
-      font-size: 1.8rem;
-    }
-
-    .category { margin: 0 0 2px; color: var(--primary); font-size: .83rem; font-weight: 800; letter-spacing: .08em; }
-    h2 { margin: 0; font-size: 1.3rem; line-height: 1.45; }
-    .description { margin: 20px 0 24px; color: var(--muted); }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      margin-top: auto;
-      padding: 10px 20px;
-      border-radius: 13px;
-      color: #fff;
-      background: var(--primary);
-      font-weight: 750;
-      text-decoration: none;
-      transition: background .2s ease;
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    .actions .button { margin-top: 0; padding-inline: 12px; }
-
-    .button.secondary {
-      border: 2px solid var(--primary);
-      color: var(--primary-dark);
-      background: #fff;
-    }
-
-    .button.secondary:hover, .button.secondary:focus-visible {
-      color: #fff;
-      background: var(--primary-dark);
-    }
-
-    .button:hover, .button:focus-visible { background: var(--primary-dark); }
-    .button:focus-visible { outline: 3px solid #7dd3c7; outline-offset: 3px; }
-
-    footer { border-top: 1px solid var(--line); padding: 28px 0 42px; color: var(--muted); text-align: center; font-size: .92rem; }
-
-    @media (max-width: 700px) {
-      header { padding-top: 48px; }
-      .grid { grid-template-columns: 1fr; gap: 16px; }
-      .card { min-height: 0; padding: 22px; }
-      .actions { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .card, .button { transition: none; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#183153">
+<title>五色百人一首 読み上げ</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23183153'/%3E%3Ccircle cx='20' cy='22' r='8' fill='%232f75d6'/%3E%3Ccircle cx='43' cy='22' r='8' fill='%23e15252'/%3E%3Ccircle cx='20' cy='43' r='8' fill='%23e3b82f'/%3E%3Ccircle cx='43' cy='43' r='8' fill='%233b9b68'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#16243a;--muted:#67758a;--surface:#fff;--line:#dbe2ea;--navy:#183153;--bg:#eef3f8;--accent:#2f75d6;--safe-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Hiragino Sans","Yu Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+button,select{font:inherit;touch-action:manipulation}button{cursor:pointer}.app{max-width:680px;margin:auto;min-height:100dvh;padding:12px 14px calc(18px + var(--safe-bottom))}
+header{display:flex;align-items:center;justify-content:space-between;padding:8px 2px 14px}h1{font-size:1.25rem;margin:0}.badge{font-size:.88rem;font-weight:800;background:#dfe9f5;padding:6px 10px;border-radius:999px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 30px #1c365b12}.hidden{display:none!important}
+.lead{margin:0 0 15px;color:var(--muted);line-height:1.55}.colors{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.color-btn{min-height:86px;border:3px solid transparent;border-radius:18px;font-size:1.25rem;font-weight:900;background:#f4f7fa;color:#172235}.color-btn[data-color=blue]{border-color:#2871c9;background:#e9f3ff}.color-btn[data-color=pink]{border-color:#dc5570;background:#fff0f4}.color-btn[data-color=yellow]{border-color:#d4aa18;background:#fff8d8}.color-btn[data-color=green]{border-color:#318b5b;background:#e9f8ef}.color-btn[data-color=orange]{border-color:#df7b25;background:#fff0e2}.color-btn:last-child{grid-column:1/-1}
+.setting{margin-top:18px}.setting label{display:block;font-weight:800;margin-bottom:8px}.setting select{width:100%;min-height:52px;border:2px solid var(--line);border-radius:14px;background:#fff;padding:0 12px;font-size:1rem}.note{font-size:.9rem;color:var(--muted);line-height:1.5;margin:10px 0 0}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px}.progress{font-weight:900;font-size:1.1rem}.remaining{color:var(--muted)}.bar{height:10px;background:#e7edf3;border-radius:99px;overflow:hidden;margin:11px 0 17px}.bar>div{height:100%;width:0;background:var(--accent);transition:width .25s}
+.poem{border-radius:18px;padding:18px;background:#f7f9fc;border:2px solid var(--line);text-align:center;min-height:190px;display:flex;flex-direction:column;justify-content:center}.status{font-weight:900;color:var(--accent);margin-bottom:12px}.kami{font-size:1.28rem;font-weight:800;line-height:1.75}.shimo{font-size:1.08rem;line-height:1.7;color:#47566c;margin-top:8px}.number{font-size:.9rem;color:var(--muted);margin-top:12px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}.btn{border:0;border-radius:16px;min-height:60px;padding:10px;font-weight:900;font-size:1.05rem}.primary{grid-column:1/-1;background:var(--navy);color:white;min-height:72px;font-size:1.25rem}.secondary{background:#e7edf4;color:#1c304d}.danger{background:#fff0f0;color:#a52d38}.btn:disabled{opacity:.45;cursor:default}
+.list{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}.list summary{font-weight:900;padding:8px 2px;cursor:pointer}.history{list-style:none;margin:8px 0 0;padding:0;max-height:34vh;overflow:auto}.history li{padding:10px 4px;border-bottom:1px solid #e7ebf0;line-height:1.55}.done{padding:28px 12px;text-align:center}.done h2{font-size:1.7rem;margin:0 0 10px}.audio-help{margin-top:12px;padding:12px;border-radius:12px;background:#fff5dd;color:#73520a;line-height:1.5;font-size:.93rem}
+@media(min-width:560px){.colors{grid-template-columns:repeat(3,1fr)}.color-btn:last-child{grid-column:auto}.app{padding-top:22px}.panel{padding:24px}}
+</style>
 </head>
-<body>
-  <header class="wrap">
-    <span class="eyebrow">EDUCATION × TECHNOLOGY</span>
-    <h1>坂井岳志の<br>アプリライブラリー</h1>
-    <p class="lead">学びを分かりやすく、練習をもっと楽しく。教育・英語学習・スポーツ分析のために開発したWebアプリを公開しています。</p>
-  </header>
-
-  <main class="wrap">
-    <h2 class="section-title">公開中のアプリ</h2>
-    <div class="grid">
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🖥️</div>
-          <div><p class="category">授業・プレゼンテーション</p><h2>ホワイトボード・モーション・スタジオ</h2></div>
-        </div>
-        <p class="description">文字、図形、画像などを配置し、変化や動きを見せながら説明できるデジタルホワイトボードです。</p>
-        <div class="actions">
-          <a class="button" href="https://canary1950.github.io/whiteboard-motion-studio/" target="_blank" rel="noopener">パソコン版 <span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href="https://canary1950.github.io/whiteboard-motion-studio/mobile.html?v=2" target="_blank" rel="noopener">スマホ版 <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">∫</div>
-          <div><p class="category">数学学習</p><h2>微分積分学習アプリ</h2></div>
-        </div>
-        <p class="description">微分・積分の考え方を、基礎からもう一度学び直すための学習アプリです。</p>
-        <a class="button" href="https://canary1950.github.io/calculus-relearning/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">💬</div>
-          <div><p class="category">英語学習</p><h2>人とつながる英語表現50</h2></div>
-        </div>
-        <p class="description">人との会話で役立つ50の英語表現を、イラストやクイズを通して楽しく身につけられます。</p>
-        <a class="button" href="https://canary1950.github.io/connect-in-english-50/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🎙️</div>
-          <div><p class="category">英語学習・AI英会話</p><h2>Modern Speaking Lab</h2></div>
-        </div>
-        <p class="description">話した英語を文字にし、翻訳・添削・発音アドバイスを表示します。AIとの音声英会話も練習できます。</p>
-        <a class="button" href="https://canary1950.github.io/modern-speaking-lab/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🖼️</div>
-          <div><p class="category">英語学習</p><h2>イディオム・イメージ記憶50</h2></div>
-        </div>
-        <p class="description">50枚のイラストを手がかりに英語イディオムを覚え、絵・意味・音声・会話クイズで繰り返し練習できる学習アプリです。</p>
-        <a class="button" href="https://canary1950.github.io/englishtest1/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🏓</div>
-          <div><p class="category">スポーツ分析</p><h2>卓球フォーム分析</h2></div>
-        </div>
-        <p class="description">プレー動画から身体の動きやフォームを分析し、上達のためのポイントを分かりやすく示します。</p>
-        <a class="button" href="https://canary1950.github.io/tabletennis/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🎯</div>
-          <div><p class="category">スポーツ分析</p><h2>ダーツフォーム分析</h2></div>
-        </div>
-        <p class="description">投球動画から腕の動き、加速、リリース、フォロースルーを確認し、フォーム改善を支援します。</p>
-        <a class="button" href="https://canary1950.github.io/darts-coach-mediapipe/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🎴</div>
-          <div><p class="category">古典・競技かるた</p><h2>競技かるた・百人一首練習</h2></div>
-        </div>
-        <p class="description">百人一首100首を、決まり字、音声読み上げ、集中練習、大会用モードで学べる練習アプリです。</p>
-        <a class="button" href="https://canary1950.github.io/competitive-karuta-practice/" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <div class="icon" aria-hidden="true">🎲</div>
-          <div><p class="category">算数学習</p><h2>ジャマイカもどき</h2></div>
-        </div>
-        <p class="description">異なる5つの数字と四則演算を使って目標の数を作ります。ランダム問題、タイマー、8問チャレンジに対応しています。</p>
-        <a class="button" href="jamaica_modoki.html" target="_blank" rel="noopener">アプリを開く <span aria-hidden="true">↗</span></a>
-      </article>
-    </div>
-  </main>
-
-  <footer>
-    <div class="wrap">© 2026 Takeshi Sakai — 学びと上達を支えるアプリ</div>
-  </footer>
-</body>
-</html>
+<body><main class="app">
+<header><h1>五色百人一首 読み上げ</h1><span class="badge" id="headerBadge">色を選ぶ</span></header>
+<section id="setup" class="panel">
+  <p class="lead">使う札の色を選んでください。20首をランダムな順番で読み上げます。</p>
+  <div class="colors">
+    <button class="color-btn" data-color="blue">青</button><button class="color-btn" data-color="pink">赤・桃</button><button class="color-btn" data-color="yellow">黄</button><button class="color-btn" data-color="green">緑</button><button class="color-btn" data-color="orange">橙</button>
+  </div>
+  <div class="setting"><label for="delay">ボタンを押してから読むまで</label><select id="delay"><option value="0">すぐに読む</option><option value="3">3秒後</option><option value="5" selected>5秒後</option><option value="10">10秒後</option></select><p class="note">札を取る人が構える時間として使えます。</p></div>
+</section>
+<section id="reader" class="panel hidden">
+  <div class="topline"><span id="progress" class="progress">1 / 20</span><span id="remaining" class="remaining">残り19首</span></div><div class="bar"><div id="barFill"></div></div>
+  <div class="poem"><div id="status" class="status">準備できました</div><div id="kami" class="kami">「読み上げ開始」を押してください</div><div id="shimo" class="shimo"></div><div id="poemNo" class="number"></div></div>
+  <div id="audioHelp" class="audio-help hidden"></div>
+  <div class="controls"><button id="pause" class="btn secondary" disabled>一時停止</button><button id="replay" class="btn secondary" disabled>もう一度読む</button><button id="mainAction" class="btn primary">読み上げ開始</button><button id="end" class="btn danger">終了して色を選ぶ</button></div>
+  <details class="list"><summary>読み終えた札 <span id="historyCount">0</span>首</summary><ol id="history" class="history"></ol></details>
+</section>
+<section id="finish" class="panel hidden"><div class="done"><h2>20首を読み終えました</h2><p id="finishColor"></p><button id="again" class="btn primary">同じ色でもう一度</button><button id="change" class="btn secondary" style="width:100%;margin-top:12px">色を選び直す</button></div></section>
+</main>
+<script>
+const poems=[{"id":1,"k":"あきの","g":"3","kami":"秋の田の かりほの庵の 苫をあらみ","yomi":"あきのたの かりほのいほの とまをあらみ","shimo":"わが衣手は 露にぬれつつ"},{"id":2,"k":"はるす","g":"3","kami":"春すぎて 夏来にけらし 白妙の","yomi":"はるすぎて なつきにけらし しろたへの","shimo":"衣ほすてふ 天の香具山"},{"id":3,"k":"あし","g":"2","kami":"あしびきの 山鳥の尾の しだり尾の","yomi":"あしびきの やまどりのをの しだりをの","shimo":"ながながし夜を ひとりかも寝む"},{"id":4,"k":"たご","g":"2","kami":"田子の浦に うち出でて見れば 白妙の","yomi":"たごのうらに うちいでてみれば しろたへの","shimo":"富士の高嶺に 雪は降りつつ"},{"id":5,"k":"おく","g":"2","kami":"奥山に 紅葉踏み分け 鳴く鹿の","yomi":"おくやまに もみぢふみわけ なくしかの","shimo":"声聞く時ぞ 秋は悲しき"},{"id":6,"k":"かさ","g":"2","kami":"かささぎの 渡せる橋に おく霜の","yomi":"かささぎの わたせるはしに おくしもの","shimo":"白きを見れば 夜ぞふけにける"},{"id":7,"k":"あまの","g":"3","kami":"天の原 ふりさけ見れば 春日なる","yomi":"あまのはら ふりさけみれば かすがなる","shimo":"三笠の山に 出でし月かも"},{"id":8,"k":"わがい","g":"3","kami":"わが庵は 都のたつみ しかぞ住む","yomi":"わがいほは みやこのたつみ しかぞすむ","shimo":"世をうぢ山と 人はいふなり"},{"id":9,"k":"はなの","g":"3","kami":"花の色は うつりにけりな いたづらに","yomi":"はなのいろは うつりにけりな いたづらに","shimo":"わが身世にふる ながめせしまに"},{"id":10,"k":"これ","g":"2","kami":"これやこの 行くも帰るも 別れては","yomi":"これやこの ゆくもかへるも わかれては","shimo":"知るも知らぬも 逢坂の関"},{"id":11,"k":"わたのはらや","g":"6","kami":"わたの原 八十島かけて こぎ出でぬと","yomi":"わたのはら やそしまかけて こぎいでぬと","shimo":"人には告げよ あまのつり舟"},{"id":12,"k":"あまつ","g":"3","kami":"天つ風 雲の通ひ路 吹きとぢよ","yomi":"あまつかぜ くものかよひぢ ふきとぢよ","shimo":"をとめの姿 しばしとどめむ"},{"id":13,"k":"つく","g":"2","kami":"筑波嶺の 峰より落つる みなの川","yomi":"つくばねの みねよりおつる みなのがは","shimo":"恋ぞつもりて 淵となりぬる"},{"id":14,"k":"みち","g":"2","kami":"陸奥の しのぶもぢずり 誰ゆゑに","yomi":"みちのくの しのぶもぢずり たれゆゑに","shimo":"乱れそめにし われならなくに"},{"id":15,"k":"きみがためは","g":"6","kami":"君がため 春の野に出でて 若菜つむ","yomi":"きみがため はるののにいでて わかなつむ","shimo":"わが衣手に 雪は降りつつ"},{"id":16,"k":"たち","g":"2","kami":"立ち別れ いなばの山の 峰に生ふる","yomi":"たちわかれ いなばのやまの みねにおふる","shimo":"まつとし聞かば 今帰り来む"},{"id":17,"k":"ちは","g":"2","kami":"ちはやぶる 神代も聞かず 竜田川","yomi":"ちはやぶる かみよもきかず たつたがは","shimo":"からくれなゐに 水くくるとは"},{"id":18,"k":"す","g":"1","kami":"住の江の 岸による波 よるさへや","yomi":"すみのえの きしによるなみ よるさへや","shimo":"夢の通ひ路 人目よくらむ"},{"id":19,"k":"なにはが","g":"4","kami":"難波潟 短き芦の ふしの間も","yomi":"なにはがた みじかきあしの ふしのまも","shimo":"逢はでこの世を 過ぐしてよとや"},{"id":20,"k":"わび","g":"2","kami":"わびぬれば 今はた同じ 難波なる","yomi":"わびぬれば いまはたおなじ なにはなる","shimo":"みをつくしても 逢はむとぞ思ふ"},{"id":21,"k":"いまこ","g":"3","kami":"今来むと 言ひしばかりに 長月の","yomi":"いまこむと いひしばかりに ながつきの","shimo":"有明の月を 待ち出でつるかな"},{"id":22,"k":"ふ","g":"1","kami":"吹くからに 秋の草木の しをるれば","yomi":"ふくからに あきのくさきの しをるれば","shimo":"むべ山風を 嵐といふらむ"},{"id":23,"k":"つき","g":"2","kami":"月見れば 千々にものこそ 悲しけれ","yomi":"つきみれば ちぢにものこそ かなしけれ","shimo":"わが身ひとつの 秋にはあらねど"},{"id":24,"k":"この","g":"2","kami":"このたびは 幣も取りあへず 手向山","yomi":"このたびは ぬさもとりあへず たむけやま","shimo":"紅葉の錦 神のまにまに"},{"id":25,"k":"なにし","g":"3","kami":"名にし負はば 逢坂山の さねかづら","yomi":"なにしおはば あふさかやまの さねかづら","shimo":"人に知られで 来るよしもがな"},{"id":26,"k":"おぐ","g":"2","kami":"小倉山 峰のもみぢ葉 心あらば","yomi":"をぐらやま みねのもみぢば こころあらば","shimo":"今ひとたびの みゆき待たなむ"},{"id":27,"k":"みかの","g":"3","kami":"みかの原 わきて流るる いづみ川","yomi":"みかのはら わきてながるる いづみがは","shimo":"いつ見きとてか 恋しかるらむ"},{"id":28,"k":"やまざ","g":"3","kami":"山里は 冬ぞ寂しさ まさりける","yomi":"やまざとは ふゆぞさびしさ まさりける","shimo":"人目も草も かれぬと思へば"},{"id":29,"k":"こころあ","g":"4","kami":"心あてに 折らばや折らむ 初霜の","yomi":"こころあてに をらばやをらむ はつしもの","shimo":"置きまどはせる 白菊の花"},{"id":30,"k":"ありあ","g":"3","kami":"有明の つれなく見えし 別れより","yomi":"ありあけの つれなくみえし わかれより","shimo":"暁ばかり 憂きものはなし"},{"id":31,"k":"あさぼらけあ","g":"6","kami":"朝ぼらけ 有明の月と 見るまでに","yomi":"あさぼらけ ありあけのつきと みるまでに","shimo":"吉野の里に 降れる白雪"},{"id":32,"k":"やまが","g":"3","kami":"山川に 風のかけたる しがらみは","yomi":"やまがはに かぜのかけたる しがらみは","shimo":"流れもあへぬ 紅葉なりけり"},{"id":33,"k":"ひさ","g":"2","kami":"ひさかたの 光のどけき 春の日に","yomi":"ひさかたの ひかりのどけき はるのひに","shimo":"しづ心なく 花の散るらむ"},{"id":34,"k":"たれ","g":"2","kami":"誰をかも 知る人にせむ 高砂の","yomi":"たれをかも しるひとにせむ たかさごの","shimo":"松も昔の 友ならなくに"},{"id":35,"k":"ひとは","g":"3","kami":"人はいさ 心も知らず ふるさとは","yomi":"ひとはいさ こころもしらず ふるさとは","shimo":"花ぞ昔の 香ににほひける"},{"id":36,"k":"なつ","g":"2","kami":"夏の夜は まだ宵ながら 明けぬるを","yomi":"なつのよは まだよひながら あけぬるを","shimo":"雲のいづこに 月宿るらむ"},{"id":37,"k":"しら","g":"2","kami":"白露に 風の吹きしく 秋の野は","yomi":"しらつゆに かぜのふきしく あきののは","shimo":"つらぬきとめぬ 玉ぞ散りける"},{"id":38,"k":"わすら","g":"3","kami":"忘らるる 身をば思はず 誓ひてし","yomi":"わすらるる みをばおもはず ちかひてし","shimo":"人の命の 惜しくもあるかな"},{"id":39,"k":"あさぢ","g":"3","kami":"浅茅生の 小野の篠原 しのぶれど","yomi":"あさぢふの をののしのはら しのぶれど","shimo":"あまりてなどか 人の恋しき"},{"id":40,"k":"しの","g":"2","kami":"忍ぶれど 色に出でにけり わが恋は","yomi":"しのぶれど いろにいでにけり わがこひは","shimo":"ものや思ふと 人の問ふまで"},{"id":41,"k":"こひ","g":"2","kami":"恋すてふ わが名はまだき 立ちにけり","yomi":"こひすてふ わがなはまだき たちにけり","shimo":"人知れずこそ 思ひそめしか"},{"id":42,"k":"ちぎりき","g":"4","kami":"契りきな かたみに袖を しぼりつつ","yomi":"ちぎりきな かたみにそでを しぼりつつ","shimo":"末の松山 波越さじとは"},{"id":43,"k":"あひ","g":"2","kami":"逢ひ見ての のちの心に くらぶれば","yomi":"あひみての のちのこころに くらぶれば","shimo":"昔はものを 思はざりけり"},{"id":44,"k":"あふこ","g":"3","kami":"逢ふことの 絶えてしなくは なかなかに","yomi":"あふことの たえてしなくは なかなかに","shimo":"人をも身をも 恨みざらまし"},{"id":45,"k":"あはれ","g":"3","kami":"あはれとも いふべき人は 思ほえで","yomi":"あはれとも いふべきひとは おもほえで","shimo":"身のいたづらに なりぬべきかな"},{"id":46,"k":"ゆら","g":"2","kami":"由良の門を 渡る舟人 かぢを絶え","yomi":"ゆらのとを わたるふなびと かぢをたえ","shimo":"ゆくへも知らぬ 恋の道かな"},{"id":47,"k":"やへ","g":"2","kami":"八重むぐら 茂れる宿の 寂しきに","yomi":"やへむぐら しげれるやどの さびしきに","shimo":"人こそ見えね 秋は来にけり"},{"id":48,"k":"かぜを","g":"3","kami":"風をいたみ 岩うつ波の おのれのみ","yomi":"かぜをいたみ いはうつなみの おのれのみ","shimo":"くだけてものを 思ふころかな"},{"id":49,"k":"みかき","g":"3","kami":"御垣守 衛士のたく火の 夜は燃え","yomi":"みかきもり ゑじのたくひの よるはもえ","shimo":"昼は消えつつ ものをこそ思へ"},{"id":50,"k":"きみがためを","g":"6","kami":"君がため 惜しからざりし 命さへ","yomi":"きみがため をしからざりし いのちさへ","shimo":"長くもがなと 思ひけるかな"},{"id":51,"k":"かく","g":"2","kami":"かくとだに えやはいぶきの さしも草","yomi":"かくとだに えやはいぶきの さしもぐさ","shimo":"さしも知らじな 燃ゆる思ひを"},{"id":52,"k":"あけ","g":"2","kami":"明けぬれば 暮るるものとは 知りながら","yomi":"あけぬれば くるるものとは しりながら","shimo":"なほ恨めしき 朝ぼらけかな"},{"id":53,"k":"なげき","g":"3","kami":"嘆きつつ ひとり寝る夜の 明くる間は","yomi":"なげきつつ ひとりぬるよの あくるまは","shimo":"いかに久しき ものとかは知る"},{"id":54,"k":"わすれ","g":"3","kami":"忘れじの 行く末までは かたければ","yomi":"わすれじの ゆくすゑまでは かたければ","shimo":"今日を限りの 命ともがな"},{"id":55,"k":"たき","g":"2","kami":"滝の音は 絶えて久しく なりぬれど","yomi":"たきのおとは たえてひさしく なりぬれど","shimo":"名こそ流れて なほ聞こえけれ"},{"id":56,"k":"あらざ","g":"3","kami":"あらざらむ この世のほかの 思ひ出に","yomi":"あらざらむ このよのほかの おもひでに","shimo":"今ひとたびの 逢ふこともがな"},{"id":57,"k":"め","g":"1","kami":"めぐり逢ひて 見しやそれとも わかぬ間に","yomi":"めぐりあひて みしやそれとも わかぬまに","shimo":"雲がくれにし 夜半の月かな"},{"id":58,"k":"ありま","g":"3","kami":"有馬山 猪名の笹原 風吹けば","yomi":"ありまやま ゐなのささはら かぜふけば","shimo":"いでそよ人を 忘れやはする"},{"id":59,"k":"やす","g":"2","kami":"やすらはで 寝なましものを さ夜更けて","yomi":"やすらはで ねなましものを さよふけて","shimo":"かたぶくまでの 月を見しかな"},{"id":60,"k":"おほえ","g":"3","kami":"大江山 いく野の道の 遠ければ","yomi":"おほえやま いくののみちの とほければ","shimo":"まだふみも見ず 天の橋立"},{"id":61,"k":"いに","g":"2","kami":"いにしへの 奈良の都の 八重桜","yomi":"いにしへの ならのみやこの やへざくら","shimo":"今日九重に にほひぬるかな"},{"id":62,"k":"よを","g":"2","kami":"夜をこめて 鳥のそら音は はかるとも","yomi":"よをこめて とりのそらねは はかるとも","shimo":"よに逢坂の 関は許さじ"},{"id":63,"k":"いまは","g":"3","kami":"今はただ 思ひ絶えなむ とばかりを","yomi":"いまはただ おもひたえなむ とばかりを","shimo":"人づてならで 言ふよしもがな"},{"id":64,"k":"あさぼらけう","g":"6","kami":"朝ぼらけ 宇治の川霧 たえだえに","yomi":"あさぼらけ うぢのかはぎり たえだえに","shimo":"あらはれわたる 瀬々の網代木"},{"id":65,"k":"うら","g":"2","kami":"恨みわび ほさぬ袖だに あるものを","yomi":"うらみわび ほさぬそでだに あるものを","shimo":"恋に朽ちなむ 名こそ惜しけれ"},{"id":66,"k":"もろ","g":"2","kami":"もろともに あはれと思へ 山桜","yomi":"もろともに あはれとおもへ やまざくら","shimo":"花よりほかに 知る人もなし"},{"id":67,"k":"はるの","g":"3","kami":"春の夜の 夢ばかりなる 手枕に","yomi":"はるのよの ゆめばかりなる たまくらに","shimo":"かひなく立たむ 名こそ惜しけれ"},{"id":68,"k":"こころに","g":"4","kami":"心にも あらで憂き世に ながらへば","yomi":"こころにも あらでうきよに ながらへば","shimo":"恋しかるべき 夜半の月かな"},{"id":69,"k":"あらし","g":"3","kami":"嵐吹く 三室の山の もみぢ葉は","yomi":"あらしふく みむろのやまの もみぢばは","shimo":"竜田の川の 錦なりけり"},{"id":70,"k":"さ","g":"1","kami":"寂しさに 宿を立ち出でて ながむれば","yomi":"さびしさに やどをたちいでて ながむれば","shimo":"いづこも同じ 秋の夕暮れ"},{"id":71,"k":"ゆふ","g":"2","kami":"夕されば 門田の稲葉 おとづれて","yomi":"ゆふされば かどたのいなば おとづれて","shimo":"芦のまろ屋に 秋風ぞ吹く"},{"id":72,"k":"おと","g":"2","kami":"音に聞く 高師の浜の あだ波は","yomi":"おとにきく たかしのはまの あだなみは","shimo":"かけじや袖の ぬれもこそすれ"},{"id":73,"k":"たか","g":"2","kami":"高砂の 尾上の桜 咲きにけり","yomi":"たかさごの をのへのさくら さきにけり","shimo":"外山の霞 立たずもあらなむ"},{"id":74,"k":"うか","g":"2","kami":"憂かりける 人を初瀬の 山おろしよ","yomi":"うかりける ひとをはつせの やまおろしよ","shimo":"激しかれとは 祈らぬものを"},{"id":75,"k":"ちぎりお","g":"4","kami":"契りおきし させもが露を 命にて","yomi":"ちぎりおきし させもがつゆを いのちにて","shimo":"あはれ今年の 秋もいぬめり"},{"id":76,"k":"わたのはらこ","g":"6","kami":"わたの原 こぎ出でて見れば 久方の","yomi":"わたのはら こぎいでてみれば ひさかたの","shimo":"雲居にまがふ 沖つ白波"},{"id":77,"k":"せ","g":"1","kami":"瀬をはやみ 岩にせかるる 滝川の","yomi":"せをはやみ いはにせかるる たきがはの","shimo":"われても末に 逢はむとぞ思ふ"},{"id":78,"k":"あはぢ","g":"3","kami":"淡路島 かよふ千鳥の 鳴く声に","yomi":"あはぢしま かよふちどりの なくこゑに","shimo":"幾夜寝覚めぬ 須磨の関守"},{"id":79,"k":"あきか","g":"3","kami":"秋風に たなびく雲の 絶え間より","yomi":"あきかぜに たなびくくもの たえまより","shimo":"もれ出づる月の 影のさやけさ"},{"id":80,"k":"ながか","g":"3","kami":"長からむ 心も知らず 黒髪の","yomi":"ながからむ こころもしらず くろかみの","shimo":"乱れて今朝は ものをこそ思へ"},{"id":81,"k":"ほ","g":"1","kami":"ほととぎす 鳴きつる方を ながむれば","yomi":"ほととぎす なきつるかたを ながむれば","shimo":"ただ有明の 月ぞ残れる"},{"id":82,"k":"おも","g":"2","kami":"思ひわび さても命は あるものを","yomi":"おもひわび さてもいのちは あるものを","shimo":"憂きに堪へぬは 涙なりけり"},{"id":83,"k":"よのなかよ","g":"5","kami":"世の中よ 道こそなけれ 思ひ入る","yomi":"よのなかよ みちこそなけれ おもひいる","shimo":"山の奥にも 鹿ぞ鳴くなる"},{"id":84,"k":"ながら","g":"3","kami":"ながらへば またこのごろや しのばれむ","yomi":"ながらへば またこのごろや しのばれむ","shimo":"憂しと見し世ぞ 今は恋しき"},{"id":85,"k":"よも","g":"2","kami":"夜もすがら もの思ふころは 明けやらで","yomi":"よもすがら ものおもふころは あけやらで","shimo":"閨のひまさへ つれなかりけり"},{"id":86,"k":"なげけ","g":"3","kami":"嘆けとて 月やはものを 思はする","yomi":"なげけとて つきやはものを おもはする","shimo":"かこち顔なる わが涙かな"},{"id":87,"k":"む","g":"1","kami":"村雨の 露もまだひぬ 槇の葉に","yomi":"むらさめの つゆもまだひぬ まきのはに","shimo":"霧立ちのぼる 秋の夕暮れ"},{"id":88,"k":"なにはえ","g":"4","kami":"難波江の 芦のかりねの ひとよゆゑ","yomi":"なにはえの あしのかりねの ひとよゆゑ","shimo":"みをつくしてや 恋ひわたるべき"},{"id":89,"k":"たま","g":"2","kami":"玉の緒よ 絶えなば絶えね ながらへば","yomi":"たまのをよ たえなばたえね ながらへば","shimo":"忍ぶることの 弱りもぞする"},{"id":90,"k":"みせ","g":"2","kami":"見せばやな 雄島のあまの 袖だにも","yomi":"みせばやな をじまのあまの そでだにも","shimo":"ぬれにぞぬれし 色は変はらず"},{"id":91,"k":"きり","g":"2","kami":"きりぎりす 鳴くや霜夜の さむしろに","yomi":"きりぎりす なくやしもよの さむしろに","shimo":"衣かたしき ひとりかも寝む"},{"id":92,"k":"わがそ","g":"3","kami":"わが袖は 潮干に見えぬ 沖の石の","yomi":"わがそでは しほひにみえぬ おきのいしの","shimo":"人こそ知らね 乾く間もなし"},{"id":93,"k":"よのなかは","g":"5","kami":"世の中は 常にもがもな 渚こぐ","yomi":"よのなかは つねにもがもな なぎさこぐ","shimo":"あまの小舟の 綱手かなしも"},{"id":94,"k":"みよ","g":"2","kami":"み吉野の 山の秋風 さ夜更けて","yomi":"みよしのの やまのあきかぜ さよふけて","shimo":"ふるさと寒く 衣うつなり"},{"id":95,"k":"おほけ","g":"3","kami":"おほけなく 憂き世の民に おほふかな","yomi":"おほけなく うきよのたみに おほふかな","shimo":"わが立つ杣に 墨染の袖"},{"id":96,"k":"はなさ","g":"3","kami":"花さそふ 嵐の庭の 雪ならで","yomi":"はなさそふ あらしのにはの ゆきならで","shimo":"ふりゆくものは わが身なりけり"},{"id":97,"k":"こぬ","g":"2","kami":"来ぬ人を まつほの浦の 夕なぎに","yomi":"こぬひとを まつほのうらの ゆふなぎに","shimo":"焼くや藻塩の 身もこがれつつ"},{"id":98,"k":"かぜそ","g":"3","kami":"風そよぐ ならの小川の 夕暮は","yomi":"かぜそよぐ ならのをがはの ゆふぐれは","shimo":"みそぎぞ夏の しるしなりける"},{"id":99,"k":"ひとも","g":"3","kami":"人も惜し 人も恨めし あぢきなく","yomi":"ひともをし ひともうらめし あぢきなく","shimo":"世を思ふゆゑに もの思ふ身は"},{"id":100,"k":"もも","g":"2","kami":"百敷や 古き軒端の しのぶにも","yomi":"ももしきや ふるきのきばの しのぶにも","shimo":"なほあまりある 昔なりけり"}];
+const groups={
+ blue:[3,5,6,12,14,24,30,31,50,57,61,62,69,70,74,75,76,82,91,100],
+ pink:[1,4,13,16,22,28,34,40,48,51,58,65,66,72,73,80,83,84,86,97],
+ yellow:[2,7,10,18,32,33,37,39,46,47,55,60,78,79,81,85,87,89,94,96],
+ green:[8,9,11,15,17,20,23,26,29,35,36,38,41,42,54,59,68,71,92,93],
+ orange:[19,21,25,27,43,44,45,49,52,53,56,63,64,67,77,88,90,95,98,99]
+};
+const colorNames={blue:'青',pink:'赤・桃',yellow:'黄',green:'緑',orange:'橙'};
+const accents={blue:'#2871c9',pink:'#dc5570',yellow:'#c49b0b',green:'#318b5b',orange:'#df7b25'};
+const $=id=>document.getElementById(id);let selectedColor='',queue=[],index=0,audio=null,timer=null,state='ready',history=[];let wakeLock=null;
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function show(id){['setup','reader','finish'].forEach(x=>$(x).classList.toggle('hidden',x!==id))}
+async function keepAwake(){try{if('wakeLock'in navigator)wakeLock=await navigator.wakeLock.request('screen')}catch(e){}}
+function releaseAwake(){try{wakeLock?.release()}catch(e){}wakeLock=null}
+function stopAudio(){if(timer){clearTimeout(timer);timer=null}if(audio){audio.pause();audio.src='';audio=null}state='ready'}
+function begin(color){selectedColor=color;queue=shuffle(groups[color].map(id=>poems.find(p=>p.id===id)));index=0;history=[];document.documentElement.style.setProperty('--accent',accents[color]);$('headerBadge').textContent=colorNames[color];show('reader');keepAwake();renderReady()}
+function current(){return queue[index]}
+function renderReady(){const p=current();if(!p)return finish();state='ready';$('progress').textContent=(index+1)+' / 20';$('remaining').textContent='残り'+(20-index-1)+'首';$('barFill').style.width=(index/20*100)+'%';$('status').textContent='準備できました';$('kami').textContent='「読み上げ開始」を押してください';$('shimo').textContent='';$('poemNo').textContent='';$('mainAction').textContent='読み上げ開始';$('mainAction').disabled=false;$('pause').disabled=true;$('pause').textContent='一時停止';$('replay').disabled=true;$('audioHelp').classList.add('hidden');renderHistory()}
+function playCurrent(isReplay=false){stopAudio();const p=current(),delay=isReplay?0:Number($('delay').value);state='waiting';$('status').textContent=delay?delay+'秒後に読み上げます':'音声を準備しています';$('kami').textContent='';$('shimo').textContent='';$('poemNo').textContent='';$('mainAction').disabled=true;$('pause').disabled=false;$('pause').textContent='一時停止';timer=setTimeout(()=>{timer=null;audio=new Audio('audio/J_'+p.id+'.mp3');audio.preload='auto';audio.addEventListener('playing',()=>{state='playing';$('status').textContent='読み上げ中';$('pause').disabled=false;},{once:true});audio.addEventListener('ended',()=>{state='ended';$('status').textContent='読み上げが終わりました';$('kami').textContent=p.kami;$('shimo').textContent=p.shimo;$('poemNo').textContent=p.id+'番';$('mainAction').textContent=index===19?'終了':'次の札';$('mainAction').disabled=false;$('pause').disabled=true;$('replay').disabled=false;if(!history.some(x=>x.id===p.id))history.push(p);renderHistory()},{once:true});audio.addEventListener('error',()=>{state='error';$('status').textContent='音声を読み込めません';$('audioHelp').textContent='audio/J_'+p.id+'.mp3 を確認してください。index.htmlとaudioフォルダを同じ場所に置きます。';$('audioHelp').classList.remove('hidden');$('mainAction').textContent='次の札';$('mainAction').disabled=false;$('pause').disabled=true;$('replay').disabled=false;},{once:true});audio.play().catch(()=>{state='tap';$('status').textContent='もう一度タップしてください';$('mainAction').textContent='音声を再生';$('mainAction').disabled=false;$('pause').disabled=true;});},delay*1000)}
+function mainAction(){if(state==='ready'||state==='tap'){playCurrent()}else if(state==='ended'||state==='error'){if(index>=19)finish();else{index++;renderReady()}}}
+function pause(){if(state==='waiting'&&timer){clearTimeout(timer);timer=null;state='paused-wait';$('status').textContent='一時停止中';$('pause').textContent='再開'}else if(state==='paused-wait'){playCurrent()}else if(audio&&state==='playing'){audio.pause();state='paused';$('status').textContent='一時停止中';$('pause').textContent='再開'}else if(audio&&state==='paused'){audio.play();state='playing';$('status').textContent='読み上げ中';$('pause').textContent='一時停止'}}
+function replay(){playCurrent(true)}
+function renderHistory(){$('historyCount').textContent=history.length;$('history').innerHTML=history.map((p,i)=>'<li><b>'+(i+1)+'. '+p.id+'番</b>　'+p.kami+'<br>'+p.shimo+'</li>').join('')}
+function finish(){stopAudio();releaseAwake();$('barFill').style.width='100%';$('finishColor').textContent=colorNames[selectedColor]+'の札をすべて読み終えました。';show('finish')}
+function reset(){stopAudio();releaseAwake();selectedColor='';$('headerBadge').textContent='色を選ぶ';show('setup')}
+document.querySelectorAll('.color-btn').forEach(b=>b.addEventListener('click',()=>begin(b.dataset.color)));$('mainAction').onclick=mainAction;$('pause').onclick=pause;$('replay').onclick=replay;$('end').onclick=reset;$('again').onclick=()=>begin(selectedColor);$('change').onclick=reset;
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&selectedColor&&!wakeLock)keepAwake()});
+console.assert(poems.length===100,'100首');console.assert(Object.values(groups).every(x=>x.length===20),'各色20首');console.assert(new Set(Object.values(groups).flat()).size===100,'重複なし');
+</script></body></html>
