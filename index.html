@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23183153'/%3E%3Ccircle cx='20' cy='22' r='8' fill='%232f75d6'/%3E%3Ccircle cx='43' cy='22' r='8' fill='%23e15252'/%3E%3Ccircle cx='20' cy='43' r='8' fill='%23e3b82f'/%3E%3Ccircle cx='43' cy='43' r='8' fill='%233b9b68'/%3E%3C/svg%3E">
 <style>
 :root{--ink:#16243a;--muted:#67758a;--surface:#fff;--line:#dbe2ea;--navy:#183153;--bg:#eef3f8;--accent:#2f75d6;--safe-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Hiragino Sans","Yu Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Hiragino Sans","Yu Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);transition:background-color .25s ease}
 button,select{font:inherit;touch-action:manipulation}button{cursor:pointer}.app{max-width:680px;margin:auto;min-height:100dvh;padding:12px 14px calc(18px + var(--safe-bottom))}
 header{display:flex;align-items:center;justify-content:space-between;padding:8px 2px 14px}h1{font-size:1.25rem;margin:0}.badge{font-size:.88rem;font-weight:800;background:#dfe9f5;padding:6px 10px;border-radius:999px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 30px #1c365b12}.hidden{display:none!important}
@@ -28,7 +28,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:8px
   <div class="colors">
     <button class="color-btn" data-color="blue">青</button><button class="color-btn" data-color="pink">赤・桃</button><button class="color-btn" data-color="yellow">黄</button><button class="color-btn" data-color="green">緑</button><button class="color-btn" data-color="orange">橙</button>
   </div>
-  <div class="setting"><label for="delay">ボタンを押してから読むまで</label><select id="delay"><option value="0">すぐに読む</option><option value="3">3秒後</option><option value="5" selected>5秒後</option><option value="10">10秒後</option></select><p class="note">札を取る人が構える時間として使えます。</p></div>
+  <div class="setting"><label for="delay">ボタンを押してから読むまで</label><select id="delay"><option value="0">すぐに読む</option><option value="3" selected>3秒後</option><option value="5">5秒後</option><option value="10">10秒後</option></select><p class="note">札を取る人が構える時間として使えます。</p></div>
 </section>
 <section id="reader" class="panel hidden">
   <div class="topline"><span id="progress" class="progress">1 / 20</span><span id="remaining" class="remaining">残り19首</span></div><div class="bar"><div id="barFill"></div></div>
@@ -50,13 +50,14 @@ const groups={
 };
 const colorNames={blue:'青',pink:'赤・桃',yellow:'黄',green:'緑',orange:'橙'};
 const accents={blue:'#2871c9',pink:'#dc5570',yellow:'#c49b0b',green:'#318b5b',orange:'#df7b25'};
+const backgrounds={blue:'#dcecff',pink:'#ffe4eb',yellow:'#fff3b8',green:'#dff4e7',orange:'#ffe4ca'};
 const $=id=>document.getElementById(id);let selectedColor='',queue=[],index=0,audio=null,timer=null,state='ready',history=[];let wakeLock=null,objectUrl=null,playSession=0;
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function show(id){['setup','reader','finish'].forEach(x=>$(x).classList.toggle('hidden',x!==id))}
 async function keepAwake(){try{if('wakeLock'in navigator)wakeLock=await navigator.wakeLock.request('screen')}catch(e){}}
 function releaseAwake(){try{wakeLock?.release()}catch(e){}wakeLock=null}
 function stopAudio(){playSession++;if(timer){clearTimeout(timer);timer=null}if(audio){audio.pause();audio.onended=null;audio.src='';audio=null}if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null}state='ready'}
-function begin(color){selectedColor=color;queue=shuffle(groups[color].map(id=>poems.find(p=>p.id===id)));index=0;history=[];document.documentElement.style.setProperty('--accent',accents[color]);$('headerBadge').textContent=colorNames[color];show('reader');keepAwake();renderReady()}
+function begin(color){selectedColor=color;queue=shuffle(groups[color].map(id=>poems.find(p=>p.id===id)));index=0;history=[];document.documentElement.style.setProperty('--accent',accents[color]);document.documentElement.style.setProperty('--bg',backgrounds[color]);$('headerBadge').textContent=colorNames[color];$('headerBadge').style.background=accents[color];$('headerBadge').style.color=color==='yellow'?'#302600':'#fff';document.querySelector('meta[name="theme-color"]').content=accents[color];show('reader');keepAwake();renderReady()}
 function current(){return queue[index]}
 function renderReady(){const p=current();if(!p)return finish();state='ready';$('progress').textContent=(index+1)+' / 20';$('remaining').textContent='残り'+(20-index-1)+'首';$('barFill').style.width=(index/20*100)+'%';$('status').textContent='準備できました';$('kami').textContent='「読み上げ開始」を押してください';$('shimo').textContent='';$('poemNo').textContent='';$('mainAction').textContent='読み上げ開始';$('mainAction').disabled=false;$('pause').disabled=true;$('pause').textContent='一時停止';$('replay').disabled=true;$('audioHelp').classList.add('hidden');renderHistory()}
 async function detectLowerStart(arrayBuffer){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;const ctx=new AC();try{const decoded=await ctx.decodeAudioData(arrayBuffer.slice(0)),sr=decoded.sampleRate,len=decoded.length,start=Math.floor(len*.22),end=Math.floor(len*.78),win=Math.max(1,Math.floor(sr*.04));let rms=[],maxR=0;for(let pos=start;pos<end;pos+=win){let sum=0,n=0;for(let c=0;c<decoded.numberOfChannels;c++){const d=decoded.getChannelData(c),to=Math.min(pos+win,len);for(let j=pos;j<to;j++){const v=d[j];sum+=v*v;n++}}const r=Math.sqrt(sum/Math.max(1,n));rms.push({pos,r});if(r>maxR)maxR=r}const threshold=Math.max(.002,maxR*.08);let runs=[],run=null;for(const x of rms){if(x.r<threshold){if(!run)run={s:x.pos,e:x.pos+win};else run.e=x.pos+win}else if(run){runs.push(run);run=null}}if(run)runs.push(run);runs=runs.filter(x=>(x.e-x.s)/sr>=.45);if(!runs.length)return null;const mid=len/2;runs.sort((a,b)=>Math.abs((a.s+a.e)/2-mid)-Math.abs((b.s+b.e)/2-mid));return Math.min(decoded.duration,runs[0].e/sr)}finally{try{await ctx.close()}catch(e){}}}
@@ -68,7 +69,7 @@ function pause(){if(state==='waiting'&&timer){clearTimeout(timer);timer=null;sta
 function replay(){playCurrent(true)}
 function renderHistory(){$('historyCount').textContent=history.length;$('history').innerHTML=history.map((p,i)=>'<li><b>'+(i+1)+'. '+p.id+'番</b>　'+p.kami+'<br>'+p.shimo+'</li>').join('')}
 function finish(){stopAudio();releaseAwake();$('barFill').style.width='100%';$('finishColor').textContent=colorNames[selectedColor]+'の札をすべて読み終えました。';show('finish')}
-function reset(){stopAudio();releaseAwake();selectedColor='';$('headerBadge').textContent='色を選ぶ';show('setup')}
+function reset(){stopAudio();releaseAwake();selectedColor='';document.documentElement.style.setProperty('--bg','#eef3f8');$('headerBadge').textContent='色を選ぶ';$('headerBadge').style.background='';$('headerBadge').style.color='';document.querySelector('meta[name="theme-color"]').content='#183153';show('setup')}
 document.querySelectorAll('.color-btn').forEach(b=>b.addEventListener('click',()=>begin(b.dataset.color)));$('mainAction').onclick=mainAction;$('pause').onclick=pause;$('replay').onclick=replay;$('end').onclick=reset;$('again').onclick=()=>begin(selectedColor);$('change').onclick=reset;
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&selectedColor&&!wakeLock)keepAwake()});
 console.assert(poems.length===100,'100首');console.assert(Object.values(groups).every(x=>x.length===20),'各色20首');console.assert(new Set(Object.values(groups).flat()).size===100,'重複なし');
